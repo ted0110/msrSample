@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: msrsample
+spec:
+  selector:
+    matchLabels:
+      name: msrsample
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: msrsample
+    spec:
+      containers:
+        - name: msrsample
+          image: worker-node3:5000/msrsample:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 10139
